@@ -108,14 +108,17 @@ Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.23%
 
 ## Visualizations
 
-1. **Accuracy vs ε (FGSM)**
-   Shows how accuracy decreases under FGSM attack.
+### Accuracy vs Epsilon (FGSM)
 
-2. **Accuracy vs ε (Gaussian)**
-   Shows how accuracy decreases under Gaussian noise.
+![FGSM Accuracy](images/fgsm_accuracy.png)
 
-3. **Comparison Curve (FGSM vs Gaussian)**
-   Both attack types plotted together for direct comparison.
+### Accuracy vs Epsilon (Gaussian)
+
+![Gaussian Accuracy](images/gaussian_accuracy.png)
+
+### FGSM vs Gaussian Comparison
+
+![FGSM vs Gaussian](images/fgsm_vs_gaussian.png)
 
 ---
 
