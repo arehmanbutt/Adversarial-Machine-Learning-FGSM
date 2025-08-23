@@ -72,7 +72,7 @@ def fgsm_gaussian(images, epsilon):
 
 ---
 
-## 📊 Evaluation
+## Evaluation
 
 We evaluate model accuracy under different conditions:
 
@@ -84,7 +84,7 @@ For each case, accuracy is computed on the MNIST test set.
 
 ---
 
-## 🔬 Results
+## Results
 
 ### Accuracy Results
 
@@ -133,5 +133,3 @@ Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.23%
 - Goodfellow et al., _Explaining and Harnessing Adversarial Examples_ (2015)
 
 ---
-
-# Adversarial-Machine-Learning-FGSM
