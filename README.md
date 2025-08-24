@@ -1,3 +1,4 @@
+````markdown
 # Adversarial Attacks on MNIST (FGSM vs Gaussian Noise)
 
 This part explores **adversarial robustness** of a CNN trained on the MNIST handwritten digit dataset. I have implemented two types of perturbations:
@@ -33,6 +34,7 @@ class SimpleCNN(nn.Module):
         x = self.fc1(x)
         return x
 ```
+````
 
 ---
 
@@ -91,11 +93,11 @@ For each case, accuracy is computed on the MNIST test set.
 ```
 Accuracy on clean images: 97.79%
 
-Epsilon 0.01 | FGSM acc: 52.53% | Gaussian acc: 53.71%
-Epsilon 0.10 | FGSM acc: 42.46% | Gaussian acc: 52.49%
-Epsilon 0.30 | FGSM acc: 19.93% | Gaussian acc: 44.58%
-Epsilon 0.50 | FGSM acc: 10.23% | Gaussian acc: 31.91%
-Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.23%
+Epsilon 0.01 | FGSM acc: 52.53% | Gaussian acc: 53.68%
+Epsilon 0.10 | FGSM acc: 42.46% | Gaussian acc: 52.40%
+Epsilon 0.30 | FGSM acc: 19.93% | Gaussian acc: 44.46%
+Epsilon 0.50 | FGSM acc: 10.23% | Gaussian acc: 32.23%
+Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.20%
 ```
 
 ### Key Observations
@@ -120,6 +122,57 @@ Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.23%
 
 ![FGSM vs Gaussian](images/fgsm_vs_gaussian.png)
 
+````markdown
+## API Usage
+
+I also built a **FastAPI-based API** that allows you to upload an image and test the model under adversarial attacks.
+
+### Endpoints
+
+1. **FGSM Attack**
+   ```http
+   POST /fgsm_attack/
+   ```
+````
+
+- **Parameters:**
+
+  - `file`: an image file (PNG/JPG of a digit)
+  - `label`: original label of the digit (int)
+  - `epsilon`: strength of perturbation (float, e.g., 0.1)
+
+- **Response:**
+
+  ```json
+  {
+    "Original_label": 7,
+    "Predicted_label": 4,
+    "Attack success": true
+  }
+  ```
+
+2. **Gaussian Noise Attack**
+
+   ```http
+   POST /fgsm_gaussian/
+   ```
+
+   - **Parameters:**
+
+     - `file`: an image file (PNG/JPG of a digit)
+     - `label`: original label of the digit (int)
+     - `epsilon`: strength of perturbation (float, e.g., 0.1)
+
+   - **Response:**
+
+     ```json
+     {
+       "Original_label": 7,
+       "Predicted_label": 4,
+       "Attack success": true
+     }
+     ```
+
 ---
 
 ## How to Extend
@@ -128,11 +181,10 @@ Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.23%
 - Train the model with **adversarial training** for robustness.
 - Experiment with other attacks (PGD, DeepFool, CW).
 - Apply on different datasets (CIFAR-10, FashionMNIST).
+- Extend the API with batch evaluation and visualizations.
 
 ---
 
 ## References
 
 - Goodfellow et al., _Explaining and Harnessing Adversarial Examples_ (2015)
-
----
