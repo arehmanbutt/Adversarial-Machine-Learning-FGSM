@@ -120,7 +120,6 @@ Epsilon 1.00 | FGSM acc:  9.25% | Gaussian acc: 14.20%
 
 ![FGSM vs Gaussian](images/fgsm_vs_gaussian.png)
 
-````markdown
 ## API Usage
 
 I also built a **FastAPI-based API** that allows you to upload an image and test the model under adversarial attacks.
@@ -131,7 +130,6 @@ I also built a **FastAPI-based API** that allows you to upload an image and test
    ```http
    POST /fgsm_attack/
    ```
-````
 
 - **Parameters:**
 
