@@ -1,4 +1,3 @@
-````markdown
 # Adversarial Attacks on MNIST (FGSM vs Gaussian Noise)
 
 This part explores **adversarial robustness** of a CNN trained on the MNIST handwritten digit dataset. I have implemented two types of perturbations:
@@ -34,7 +33,6 @@ class SimpleCNN(nn.Module):
         x = self.fc1(x)
         return x
 ```
-````
 
 ---
 
